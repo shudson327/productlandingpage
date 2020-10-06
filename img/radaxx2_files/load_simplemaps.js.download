@@ -1,0 +1,65 @@
+(function(){
+
+  var loadScript = function(url, callback){
+   
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+
+    // If the browser is Internet Explorer.
+    if (script.readyState){ 
+      script.onreadystatechange = function(){
+        if (script.readyState == "loaded" || script.readyState == "complete"){
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    // For any other browser.
+    } else {
+      script.onload = function(){
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  };
+  
+  var rand=Math.floor(Math.random()*10000000).toString()  //random string to prevent caching
+  var map_embedded=document.getElementById("simplemaps")?true:false;
+  var shop=Shopify.shop;
+  var slug=shop.replace('.myshopify.com', '');
+  if (map_embedded){
+    var map_complete = function(){
+      var load_current_map='simplemaps_'+simplemaps_config.map_type+'map.load()';
+      eval(load_current_map);
+    }  
+
+    var load_map=function(){
+      if(simplemaps_config.branded){
+        loadScript('https://s3.amazonaws.com/shopify-simplemaps/shared/branded/'+simplemaps_config.map_type+'map.js', map_complete);
+      }
+      else{
+        loadScript('https://s3.amazonaws.com/shopify-simplemaps/shared/'+simplemaps_config.map_type+'map.js', map_complete);
+      }       
+    }
+    
+    var config_complete = function(){
+      if(simplemaps_config.extra_js){
+        loadScript('https://s3.amazonaws.com/shopify-simplemaps/users/'+slug+'/extra.js?'+rand, load_map);  
+      }
+      else{
+        load_map();
+      }
+    }
+    
+    var mapdata_complete = function(){
+      loadScript('https://s3.amazonaws.com/shopify-simplemaps/users/'+slug+'/config.js?'+rand, config_complete);  
+    }   
+    
+    loadScript('https://s3.amazonaws.com/shopify-simplemaps/users/'+slug+'/mapdata.js?'+rand, mapdata_complete); 
+
+  }
+    
+  
+
+})();

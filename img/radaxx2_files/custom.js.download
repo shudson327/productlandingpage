@@ -1,0 +1,10 @@
+window.addEventListener("DOMContentLoaded", function() {
+    if (!document.referrer.includes('thebadaxx.com')) {
+        document.querySelector('.newsletter-popup').classList.remove('special-hide');
+    }
+
+    document.querySelector('.newsletter-popup .close').addEventListener('click', function() {
+        document.querySelector('.newsletter-popup').classList.add('special-hide');
+    })
+});
+
