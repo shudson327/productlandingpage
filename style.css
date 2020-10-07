@@ -9,7 +9,7 @@ body {
 }
 #title {
         width: 80%;
-        height: 80%;
+        height: 20%;
         max-width: 300px;
         display: flex;
         justify-content: center;
@@ -52,7 +52,7 @@ a {
 .container {
     width: 500px;
     margin: auto;
-    font-size: 20px;
+    font-size: 10px;
     font-weight: bold;
     position: relative;
     top: 60px;
@@ -72,6 +72,9 @@ a {
     text-align: center;
     margin: 10px;
     padding: 10px;
+    position: relative;
+    bottom: 20px;
+    margin-bottom: 60px;
 }
 
 
@@ -79,7 +82,7 @@ a {
 .grid {
         width: 600px;
         padding: 10px;
-        border: 5px dashed gray;
+        border: 5px dashed #333333;
         margin: 0;
         position: relative;
         left: 580px;
@@ -95,19 +98,77 @@ a {
     position: absolute;
     top: 25%;
     width: 100%;
-    
-    }
 
-/* <
-.shop {
-    width: 600px;
-    padding: 10px;
-    border: 5px dashed gray;
-    margin: 0;
+}
+
+   div #img-header2{
+    max-width: 220px;
+    max-height: 220px;
+    text-align: center;
     position: relative;
-    right: 100px;
-    top: 100px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-left: 0;
+    margin-right: 25px;
+    z-index: 1;
+    border-radius: 8px;
+    position: relative;
+    bottom: 10px;
+    border: 6px solid grey;
+    margin-top: 50px;
+
+ } 
+
+.row {
+    display: flex;
+    position: relative;
+    bottom: 285px;
+  }
+  
+ #price {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: darkred;
-} 
---> */
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+}   
+
+div #img-header3{
+    max-width: 220px;
+    max-height: 220px;
+    text-align: center;
+    position: relative;
+    margin-left: 0;
+    margin-right: 25px;
+    z-index: 1;
+    border-radius: 8px;
+    position: relative;
+    bottom: 10px;
+    border: 5px solid grey;
+    column-count: 6;
+    margin-top: 100px;
+}
+#clothes {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: darkred;
+    text-align: center;
+    position: relative;
+    bottom: 15px;
+}
+.subtitle {
+    font-size: 30px;
+    text-align: center;
+    color: Black;
+    position: relative;
+    bottom: 270px;
+    border: 10px double #333333;
+}
+.subtitle2 {
+    font-size: 30px;
+    text-align: center;
+    color: Black;
+    position: relative;
+    bottom: 220px;
+    border: 10px double #333333;
+
+}
